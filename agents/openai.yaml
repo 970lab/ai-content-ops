@@ -1,0 +1,6 @@
+interface:
+  display_name: "AI Content Operations"
+  short_description: "Coordinate approval-gated content handoffs and evidence."
+  default_prompt: "Use $ai-content-ops to prepare a local-first, approval-gated content workflow with traceable handoffs."
+policy:
+  allow_implicit_invocation: true

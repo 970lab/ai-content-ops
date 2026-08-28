@@ -1,0 +1,15 @@
+artifact_type: analysis_brief
+artifact_id: analysis-sample-001
+version: v1
+owner_role: analyst
+status: analyzed
+created_at: "2030-01-18T09:00:00Z"
+updated_at: "2030-01-18T09:00:00Z"
+sources:
+  - kind: observation
+    statement: "The fictional snapshot records one positive observed metric, one confirmed zero, and two non-numeric states."
+  - kind: judgment
+    statement: "One snapshot has no comparison baseline and cannot establish a trend or creative effect."
+next_action: "Planner decides whether separately sourced, authorized comparison material is warranted."
+handoff_to: planner
+approval_refs: []
