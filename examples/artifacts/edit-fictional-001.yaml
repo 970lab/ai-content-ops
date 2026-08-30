@@ -1,0 +1,19 @@
+artifact_type: edit_package
+artifact_id: edit-fictional-001
+version: v3
+owner_role: editor
+status: in_review
+created_at: "2030-02-01T09:20:00Z"
+updated_at: "2030-02-01T09:20:00Z"
+sources:
+  - kind: fact
+    statement: "This fictional edit package reports its quality checks separately from release status."
+upstream_artifact_ids:
+  - copy-fictional-001
+upstream_artifact_versions:
+  copy-fictional-001: v2
+handoff_to: reviewer
+handoff_adapter:
+  adapter: filesystem
+  target_ref: handoffs/fictional-review
+approval_refs: []

@@ -1,0 +1,19 @@
+{
+  "artifact_type": "metric_snapshot",
+  "artifact_id": "metrics-fictional-001",
+  "version": "v1",
+  "owner_role": "analyst",
+  "status": "measuring",
+  "created_at": "2030-02-02T10:01:00Z",
+  "updated_at": "2030-02-02T10:01:00Z",
+  "complete": true,
+  "sources": [{"kind": "observation", "statement": "A permitted fictional observation recorded the declared metric states."}],
+  "upstream_artifact_ids": ["release-fictional-001"],
+  "upstream_artifact_versions": {"release-fictional-001": "v4"},
+  "handoff_to": "analyst",
+  "approval_refs": ["approvals/fictional-observation-001"],
+  "published_identity": {"confirmed": true, "reference": "published/fictional-item-001"},
+  "measurement_window": {"start": "2030-02-01T10:00:00Z", "end": "2030-02-02T10:00:00Z", "timezone": "UTC"},
+  "collection": {"adapter": "platform_metrics", "observed_at": "2030-02-02T10:01:00Z", "evidence_ref": "evidence/fictional-observation-001"},
+  "metrics": {"views": {"state": "observed", "value": 12}, "shares": {"state": "zero", "value": 0}, "replies": {"state": "immature", "reason": "The fictional window is not mature."}}
+}

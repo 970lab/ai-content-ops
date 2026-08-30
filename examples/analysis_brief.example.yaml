@@ -3,6 +3,8 @@ artifact_id: analysis-sample-001
 version: v1
 owner_role: analyst
 status: analyzed
+upstream_artifact_ids: []
+upstream_artifact_versions: {}
 created_at: "2030-01-18T09:00:00Z"
 updated_at: "2030-01-18T09:00:00Z"
 sources:

@@ -1,0 +1,15 @@
+{
+  "registry_version": "1",
+  "artifacts": [
+    {"artifact_type": "content_brief", "artifact_id": "brief-fictional-001", "version": "v1", "owner_role": "planner", "status": "planned", "artifact_ref": "artifacts/brief-fictional-001.yaml", "upstream_artifact_ids": [], "upstream_artifact_versions": {}},
+    {"artifact_type": "copy_package", "artifact_id": "copy-fictional-001", "version": "v2", "owner_role": "writer", "status": "drafted", "artifact_ref": "artifacts/copy-fictional-001.yaml", "upstream_artifact_ids": ["brief-fictional-001"], "upstream_artifact_versions": {"brief-fictional-001": "v1"}},
+    {"artifact_type": "edit_package", "artifact_id": "edit-fictional-001", "version": "v3", "owner_role": "editor", "status": "in_review", "artifact_ref": "artifacts/edit-fictional-001.yaml", "upstream_artifact_ids": ["copy-fictional-001"], "upstream_artifact_versions": {"copy-fictional-001": "v2"}},
+    {"artifact_type": "release_package", "artifact_id": "release-fictional-001", "version": "v4", "owner_role": "release_coordinator", "status": "released", "artifact_ref": "artifacts/release-fictional-001.yaml", "upstream_artifact_ids": ["edit-fictional-001"], "upstream_artifact_versions": {"edit-fictional-001": "v3"}, "release_evidence_ref": "evidence/fictional-release-001"},
+    {"artifact_type": "metric_snapshot", "artifact_id": "metrics-fictional-001", "version": "v1", "owner_role": "analyst", "status": "measuring", "artifact_ref": "artifacts/metrics-fictional-001.json", "upstream_artifact_ids": ["release-fictional-001"], "upstream_artifact_versions": {"release-fictional-001": "v4"}},
+    {"artifact_type": "analysis_brief", "artifact_id": "analysis-fictional-001", "version": "v1", "owner_role": "analyst", "status": "analyzed", "artifact_ref": "artifacts/analysis-fictional-001.yaml", "upstream_artifact_ids": ["metrics-fictional-001"], "upstream_artifact_versions": {"metrics-fictional-001": "v1"}}
+  ],
+  "adapter_declarations": [
+    {"adapter": "filesystem", "direction": "export", "source_artifact_ids": ["brief-fictional-001", "copy-fictional-001", "edit-fictional-001", "release-fictional-001"], "target_ref": "handoffs/reviewed-work", "external_action": false, "operation_claimed_complete": false},
+    {"adapter": "platform_metrics", "direction": "observe", "source_artifact_ids": ["metrics-fictional-001"], "target_ref": "measurement/fictional-window", "external_action": true, "authorization_ref": "approvals/fictional-observation-001", "operation_claimed_complete": true, "evidence_ref": "evidence/fictional-observation-001"}
+  ]
+}

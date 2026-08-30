@@ -1,0 +1,19 @@
+artifact_type: copy_package
+artifact_id: copy-fictional-001
+version: v2
+owner_role: writer
+status: drafted
+created_at: "2030-02-01T09:10:00Z"
+updated_at: "2030-02-01T09:10:00Z"
+sources:
+  - kind: fact
+    statement: "This fictional copy package retains the brief's approved generic claim."
+upstream_artifact_ids:
+  - brief-fictional-001
+upstream_artifact_versions:
+  brief-fictional-001: v1
+handoff_to: editor
+handoff_adapter:
+  adapter: filesystem
+  target_ref: handoffs/fictional-edit
+approval_refs: []

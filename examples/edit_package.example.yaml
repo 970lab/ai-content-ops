@@ -1,0 +1,23 @@
+artifact_type: edit_package
+artifact_id: edit-sample-001
+version: v1
+owner_role: editor
+status: in_review
+created_at: "2030-01-01T09:20:00Z"
+updated_at: "2030-01-01T09:20:00Z"
+sources:
+  - kind: fact
+    statement: "This fictional edit package retains the copy-package claim without changing it."
+upstream_artifact_ids:
+  - copy-sample-001
+upstream_artifact_versions:
+  copy-sample-001: v1
+handoff_to: reviewer
+handoff_adapter:
+  adapter: filesystem
+  target_ref: handoffs/sample-review
+approval_refs: []
+editable_asset_refs:
+  - assets/fictional-layout-source
+quality_checks:
+  - "Readable at the declared preview size."

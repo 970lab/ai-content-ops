@@ -1,0 +1,17 @@
+artifact_type: content_brief
+artifact_id: brief-fictional-001
+version: v1
+owner_role: planner
+status: planned
+created_at: "2030-02-01T09:00:00Z"
+updated_at: "2030-02-01T09:00:00Z"
+sources:
+  - kind: fact
+    statement: "This fictional brief has an approved generic coordination topic."
+upstream_artifact_ids: []
+upstream_artifact_versions: {}
+handoff_to: writer
+handoff_adapter:
+  adapter: filesystem
+  target_ref: handoffs/fictional-copy
+approval_refs: []

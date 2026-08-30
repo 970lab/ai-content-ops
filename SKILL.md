@@ -7,9 +7,12 @@ description: Coordinate deidentified, approval-gated content operations across b
 
 Use this skill to organize a content team's handoffs when several roles contribute to one release and evidence must remain traceable. It creates or audits interoperable artifacts; it does not log in to accounts, upload, publish, scrape private information, or automate platform actions.
 
+The workflow has five modules: source discovery, asset production, platform adaptation, release control, and measurement feedback. A small team may assign one person to several modules; the artifact boundary stays the same so work can move between people or AI sessions without relying on chat history.
+
 ## Route the request
 
 - For required artifact shapes and role handoffs, read [references/artifact-contract.md](references/artifact-contract.md).
+- For the five-module workflow and its artifact handoffs, read [references/module-map.md](references/module-map.md).
 - For lifecycle status or discovery/audit outcomes, read [references/workflow-states.md](references/workflow-states.md).
 - Before any account interaction, upload, or publication, read [references/approval-gates.md](references/approval-gates.md).
 - For an integration request, read [references/adapter-contract.md](references/adapter-contract.md). Adapters exchange declared artifacts only; they do not imply connectivity or authority.
@@ -22,6 +25,7 @@ Use this skill to organize a content team's handoffs when several roles contribu
 4. A discovery or audit concludes only `candidate`, `no_candidate`, or `blocker`; do not create a parallel ledger or database to replace the declared registry.
 5. A human must give scoped authorization immediately before any upload, publication, or account interaction. A prepared `release_package` is not proof of release.
 6. Collect metrics only after a confirmed published identity and measurement window exist. Record each metric as `observed`, `zero`, `unavailable`, or `immature`; never infer a zero from missing data.
+7. Keep organization-specific paths, brand rules, platform limits, topic counts, account names, and approval tokens in local configuration. Do not bake them into the portable workflow contract.
 
 ## Helpers
 
