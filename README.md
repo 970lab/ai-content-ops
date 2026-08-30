@@ -44,3 +44,5 @@ Use replaceable adapters such as `filesystem`, `document_archive`, `object_stora
 Platform rules belong in a team's local configuration. This repository intentionally does not prescribe page counts, hashtag counts, account identities, storage mounts, or vendor-specific authorization wording.
 
 `examples/registry.example.json` is deliberately pre-release: it stops at `awaiting_authorization`. `examples/full-lifecycle.example.json` is a separate fictional post-release chain. Its referenced artifacts are included, its release record is `released` with neutral evidence, and only then does measurement begin.
+
+The offline audit also treats `content_brief` as a true root: any upstream artifact reference on that type is a contract violation.

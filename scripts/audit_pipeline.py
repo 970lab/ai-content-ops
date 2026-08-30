@@ -107,6 +107,8 @@ def audit(registry: object, *, base_dir: Path | None = None, check_refs: bool = 
             versions = item.get("upstream_artifact_versions")
             if not isinstance(versions, dict) or set(versions) != set(upstream) or any(not nonempty(version) for version in versions.values()):
                 errors.append("artifact_upstream_versions_invalid")
+            if item.get("artifact_type") == "content_brief" and (upstream != [] or versions != {}):
+                errors.append("content_brief_upstream_not_empty")
 
     expected_upstream_type = {
         "copy_package": "content_brief",
@@ -212,7 +214,11 @@ def self_test() -> int:
         "adapter_declarations": [],
     }
     assert "measurement_before_confirmed_release" in audit(invalid_measurement)
-    print(json.dumps({"result": "self_test_passed", "checks": 8}))
+    invalid_brief = json.loads(json.dumps(valid))
+    invalid_brief["artifacts"][0]["upstream_artifact_ids"] = ["fictional-predecessor"]
+    invalid_brief["artifacts"][0]["upstream_artifact_versions"] = {"fictional-predecessor": "v1"}
+    assert "content_brief_upstream_not_empty" in audit(invalid_brief)
+    print(json.dumps({"result": "self_test_passed", "checks": 9}))
     return 0
 
 

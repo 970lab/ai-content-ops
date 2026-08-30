@@ -12,7 +12,7 @@ Every artifact includes:
 - `handoff_to` and a declared adapter target when a handoff is requested.
 - `approval_refs` when a gate applies. A reference records an authorization decision; it is not a substitute for the decision itself.
 
-Every registry summary includes `upstream_artifact_ids` and a matching `upstream_artifact_versions` map (both empty for a `content_brief`). A `release_package` that is `released` also includes a neutral `release_evidence_ref`; a package still waiting for the account-action decision remains `awaiting_authorization` and cannot be an upstream input to measurement.
+Every registry summary includes `upstream_artifact_ids` and a matching `upstream_artifact_versions` map. A `content_brief` is the root of its chain, so both fields must be empty; it cannot cite a predecessor. A `release_package` that is `released` also includes a neutral `release_evidence_ref`; a package still waiting for the account-action decision remains `awaiting_authorization` and cannot be an upstream input to measurement.
 
 The registry also holds adapter declarations for requested handoffs. See [adapter-contract.md](adapter-contract.md) for their required shape.
 
