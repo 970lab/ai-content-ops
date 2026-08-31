@@ -24,3 +24,7 @@ A discovery or audit must end with one of:
 - `blocker`: an unmet requirement, missing authority, or ambiguous evidence prevents a sound result.
 
 These outcomes do not alter release status and must not create a competing ledger.
+
+## Declared discovery only
+
+A discovery record names the local sources it may inspect, records each source as `changed`, `unchanged`, or `unknown` with a neutral checkpoint reference, and finishes with one of the outcomes above. A missing allowlist is a `blocker`, not permission to look through adjacent folders, archives, or private history. An unchanged allowlisted source may correctly produce `no_candidate`; an unknown change state must produce `blocker`, and `candidate` requires at least one changed source.

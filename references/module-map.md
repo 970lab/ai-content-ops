@@ -25,3 +25,5 @@ The modules describe responsibilities, not fixed job titles or autonomous agents
 Keep one organization-owned registry as the lifecycle index. Local adapters may translate an existing ledger, archive, storage system, scheduler, or metric export into this contract without replacing the source system.
 
 Local configuration may define brand rules, platform constraints, account aliases, storage targets, and authorization syntax. Do not commit credentials, private paths, customer data, or private platform identifiers to a public package.
+
+For a release that uses several public surfaces, keep the surface order and readback evidence in the declared `release_sequence`; the release package is only one artifact in that sequence. Registration follows a confirmed distribution identity, then measurement, then review. See [release-sequence.md](release-sequence.md).

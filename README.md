@@ -26,6 +26,7 @@ See `references/module-map.md` and `examples/full-lifecycle.example.json` for th
 ```sh
 python3 scripts/audit_pipeline.py examples/registry.example.json --check-refs
 python3 scripts/audit_pipeline.py examples/full-lifecycle.example.json --check-refs
+python3 scripts/audit_pipeline.py examples/release-sequence.example.json
 python3 scripts/validate_metric_snapshot.py examples/metric_snapshot.example.json
 ```
 
@@ -46,3 +47,5 @@ Platform rules belong in a team's local configuration. This repository intention
 `examples/registry.example.json` is deliberately pre-release: it stops at `awaiting_authorization`. `examples/full-lifecycle.example.json` is a separate fictional post-release chain. Its referenced artifacts are included, its release record is `released` with neutral evidence, and only then does measurement begin.
 
 The offline audit also treats `content_brief` as a true root: any upstream artifact reference on that type is a contract violation.
+
+For a batch that crosses several public surfaces, declare the required order in a `release_sequence` rather than embedding provider names in this package. The validator distinguishes an authorization decision from completed-action evidence, and rejects a later confirmed stage if any required earlier stage is not confirmed. Discovery inputs are likewise an explicit, non-recursive allowlist with per-source change/checkpoint evidence; unknown change state is a blocker and a candidate needs at least one changed source. See `references/release-sequence.md` and its fictional example.

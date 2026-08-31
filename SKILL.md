@@ -14,6 +14,7 @@ The workflow has five modules: source discovery, asset production, platform adap
 - For required artifact shapes and role handoffs, read [references/artifact-contract.md](references/artifact-contract.md).
 - For the five-module workflow and its artifact handoffs, read [references/module-map.md](references/module-map.md).
 - For lifecycle status or discovery/audit outcomes, read [references/workflow-states.md](references/workflow-states.md).
+- For a multi-surface release or a discovery pass, read [references/release-sequence.md](references/release-sequence.md).
 - Before any account interaction, upload, or publication, read [references/approval-gates.md](references/approval-gates.md).
 - For an integration request, read [references/adapter-contract.md](references/adapter-contract.md). Adapters exchange declared artifacts only; they do not imply connectivity or authority.
 
@@ -26,6 +27,8 @@ The workflow has five modules: source discovery, asset production, platform adap
 5. A human must give scoped authorization immediately before any upload, publication, or account interaction. A prepared `release_package` is not proof of release.
 6. Collect metrics only after a confirmed published identity and measurement window exist. Record each metric as `observed`, `zero`, `unavailable`, or `immature`; never infer a zero from missing data.
 7. Keep organization-specific paths, brand rules, platform limits, topic counts, account names, and approval tokens in local configuration. Do not bake them into the portable workflow contract.
+8. When a batch has several public surfaces, declare their order and evidence in a `release_sequence`. `pending` and `awaiting_authorization` are not authorization; an external action is only authorized by a distinct current decision reference, and only confirmed by separate evidence.
+9. Discovery inspects only explicitly declared source references. Each has change/checkpoint evidence; `unknown` is a blocker, and the allowlist never expands into a recursive workspace scan.
 
 ## Helpers
 
