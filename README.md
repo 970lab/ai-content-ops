@@ -20,6 +20,7 @@ See `references/module-map.md` and `examples/full-lifecycle.example.json` for th
 - `references/`: artifact, state, approval, and adapter contracts.
 - `scripts/`: offline validators that read local JSON only.
 - `examples/`: fictional artifact records.
+- `skills/ai-website-release-gate/`: an offline, six-layer evidence gate for website release review, with fictional fixtures and a dependency-free validator.
 
 ## Quick check
 

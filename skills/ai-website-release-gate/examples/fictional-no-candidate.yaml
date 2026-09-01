@@ -1,0 +1,8 @@
+{
+  "schema": "ai-website-release-gate.v0.1",
+  "assessment": {"object_type": "design_idea", "release_id": "fictional-idea", "environment": "none"},
+  "layers": {},
+  "stop_gates": {},
+  "rollback_ref": null
+}
+
