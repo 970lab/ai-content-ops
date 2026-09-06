@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "claim": "delivery",
+  "project": "",
+  "revision": "",
+  "audience": "local",
+  "evidence": {
+    "source": {
+      "project": "",
+      "revision": "",
+      "observed_at": "",
+      "ref": "",
+      "result": "unknown"
+    },
+    "checks": {
+      "project": "",
+      "revision": "",
+      "observed_at": "",
+      "ref": "",
+      "result": "unknown"
+    },
+    "delivery": {
+      "project": "",
+      "revision": "",
+      "observed_at": "",
+      "ref": "",
+      "result": "unknown"
+    },
+    "access": {
+      "project": "",
+      "revision": "",
+      "observed_at": "",
+      "ref": "",
+      "result": "unknown",
+      "surface": "local"
+    },
+    "experience": {
+      "project": "",
+      "revision": "",
+      "observed_at": "",
+      "ref": "",
+      "result": "unknown",
+      "negative_path": "unknown",
+      "negative_ref": ""
+    },
+    "record": {
+      "project": "",
+      "revision": "",
+      "observed_at": "",
+      "ref": "",
+      "result": "unknown"
+    }
+  }
+}

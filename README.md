@@ -21,6 +21,7 @@ See `references/module-map.md` and `examples/full-lifecycle.example.json` for th
 - `scripts/`: offline validators that read local JSON only.
 - `examples/`: fictional artifact records.
 - `skills/ai-website-release-gate/`: an offline, six-layer evidence gate for website release review, with fictional fixtures and a dependency-free validator.
+- `skills/delivery-evidence-check/`: six practical handoff questions for websites, local documents and automation outputs; an offline consistency checker keeps recipient access, revision identity and unresolved work visible without approving delivery.
 
 ## Quick check
 
