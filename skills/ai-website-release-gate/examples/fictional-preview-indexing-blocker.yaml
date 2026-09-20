@@ -1,0 +1,23 @@
+{
+  "schema": "ai-website-release-gate.v0.1",
+  "assessment": {"object_type": "website_release", "release_id": "fictional-preview-v2", "environment": "preview"},
+  "layers": {
+    "source": {"required": true, "state": "passed", "evidence_refs": ["commit:2222222"]},
+    "build": {"required": true, "state": "passed", "evidence_refs": ["artifact:preview-v2"]},
+    "runtime": {"required": true, "state": "passed", "evidence_refs": ["report:preview-runtime"]},
+    "public_web": {"required": true, "state": "failed", "evidence_refs": ["report:indexing-policy-conflict"]},
+    "browser_device": {"required": true, "state": "passed", "evidence_refs": ["report:browser-matrix"]},
+    "status": {"required": true, "state": "passed", "evidence_refs": ["record:preview-v2"]}
+  },
+  "stop_gates": {
+    "privacy_or_asset_rights_unknown": false,
+    "production_identity_unproven": false,
+    "indexing_policy_conflict": true,
+    "unknown_path_returns_200": false,
+    "critical_interaction_failed": false,
+    "rollback_unavailable": false,
+    "authorization_scope_unknown": true
+  },
+  "rollback_ref": "release:fictional-preview-v1"
+}
+

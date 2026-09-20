@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "claim": "delivery",
+  "project": "fictional-report",
+  "revision": "revision-2",
+  "audience": "local",
+  "evidence": {
+    "source": {
+      "project": "fictional-report",
+      "revision": "revision-2",
+      "observed_at": "2026-01-01T12:00:00Z",
+      "ref": "fictional-source",
+      "result": "observed"
+    },
+    "checks": {
+      "project": "fictional-report",
+      "revision": "revision-2",
+      "observed_at": "2026-01-01T12:00:00Z",
+      "ref": "fictional-checks",
+      "result": "observed"
+    },
+    "delivery": {
+      "project": "fictional-report",
+      "revision": "revision-2",
+      "observed_at": "2026-01-01T12:00:00Z",
+      "ref": "fictional-delivery",
+      "result": "observed"
+    },
+    "access": {
+      "project": "fictional-report",
+      "revision": "revision-2",
+      "observed_at": "2026-01-01T12:00:00Z",
+      "ref": "fictional-access",
+      "result": "observed",
+      "surface": "local"
+    },
+    "experience": {
+      "project": "fictional-report",
+      "revision": "revision-2",
+      "observed_at": "2026-01-01T12:00:00Z",
+      "ref": "fictional-experience",
+      "result": "observed",
+      "negative_path": "observed",
+      "negative_ref": "fictional-invalid-input"
+    },
+    "record": {
+      "remaining_issues": [],
+      "project": "fictional-report",
+      "revision": "revision-2",
+      "observed_at": "2026-01-01T12:00:00Z",
+      "ref": "fictional-record",
+      "result": "observed"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+interface:
+  display_name: "AI Website Release Gate"
+  short_description: "Check six evidence layers before website release review"
+  default_prompt: "Use $ai-website-release-gate to assess this website release evidence and return candidate, blocker, or no_candidate."
+
