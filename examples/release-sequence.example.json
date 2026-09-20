@@ -1,0 +1,27 @@
+{
+  "registry_version": "1",
+  "artifacts": [
+    {"artifact_type": "content_brief", "artifact_id": "brief-sequence-001", "version": "v1", "owner_role": "planner", "status": "planned", "artifact_ref": "content_brief.example.yaml", "upstream_artifact_ids": [], "upstream_artifact_versions": {}}
+  ],
+  "adapter_declarations": [
+    {"adapter": "filesystem", "direction": "export", "source_artifact_ids": ["brief-sequence-001"], "target_ref": "handoffs/sequence", "external_action": false, "operation_claimed_complete": false}
+  ],
+  "discovery": {
+    "mode": "allowlist",
+    "sources": [
+      {"source_id": "approved-note-001", "source_ref": "sources/approved-note-001", "change_state": "changed", "change_evidence_ref": "checks/approved-note-001"}
+    ],
+    "outcome": "candidate"
+  },
+  "release_sequence": {
+    "required_stages": ["source_publication", "site_publication", "distribution", "registration", "measurement", "review"],
+    "stages": [
+      {"name": "source_publication", "state": "confirmed", "external_action": true, "authorization_ref": "approvals/source-publication-001", "evidence_ref": "evidence/source-publication-001"},
+      {"name": "site_publication", "state": "confirmed", "external_action": true, "authorization_ref": "approvals/site-publication-001", "evidence_ref": "evidence/site-publication-001"},
+      {"name": "distribution", "state": "confirmed", "external_action": true, "authorization_ref": "approvals/distribution-001", "evidence_ref": "evidence/distribution-001"},
+      {"name": "registration", "state": "confirmed", "external_action": false, "evidence_ref": "evidence/registration-001"},
+      {"name": "measurement", "state": "confirmed", "external_action": false, "evidence_ref": "evidence/measurement-001"},
+      {"name": "review", "state": "confirmed", "external_action": false, "evidence_ref": "evidence/review-001"}
+    ]
+  }
+}

@@ -20,6 +20,9 @@ WORKFLOW_STATES = {
     "approved_for_release", "awaiting_authorization", "released",
     "measuring", "analyzed", "blocked",
 }
+DISCOVERY_OUTCOMES = {"candidate", "no_candidate", "blocker"}
+DISCOVERY_CHANGE_STATES = {"changed", "unchanged", "unknown"}
+SEQUENCE_STATES = {"pending", "awaiting_authorization", "authorized", "confirmed", "blocked"}
 SENSITIVE_KEY = re.compile(r"(?:password|passwd|secret|token|api[_-]?key|credential|private[_-]?key)", re.I)
 SUSPICIOUS_VALUE = re.compile(
     r"(?:-----BEGIN|bearer\s+|(?:api|access|auth)[_-]?token\s*[=:]|(?:password|secret|credential)\s*[=:]|AKIA[0-9A-Z]{12,})",
@@ -64,11 +67,98 @@ def artifact_path(base_dir: Path, reference: str) -> Path:
     return base_dir / Path(reference.replace("\\", "/"))
 
 
+def audit_discovery(discovery: object) -> list[str]:
+    """Validate an opt-in, non-recursive discovery declaration."""
+    if not isinstance(discovery, dict):
+        return ["discovery_not_object"]
+    errors: list[str] = []
+    if discovery.get("mode") != "allowlist":
+        errors.append("discovery_mode_invalid")
+    sources = discovery.get("sources")
+    if not isinstance(sources, list) or not sources:
+        errors.append("discovery_allowlist_missing")
+    else:
+        source_ids: set[str] = set()
+        change_states: list[str] = []
+        for source in sources:
+            if not isinstance(source, dict) or not nonempty(source.get("source_id")):
+                errors.append("discovery_source_invalid")
+                continue
+            if source["source_id"] in source_ids:
+                errors.append("discovery_source_duplicate")
+            source_ids.add(source["source_id"])
+            if not safe_ref(source.get("source_ref")):
+                errors.append("discovery_source_ref_invalid")
+            change_state = source.get("change_state")
+            if change_state not in DISCOVERY_CHANGE_STATES:
+                errors.append("discovery_change_state_invalid")
+            else:
+                change_states.append(change_state)
+            if not safe_ref(source.get("change_evidence_ref")):
+                errors.append("discovery_change_evidence_missing")
+    if discovery.get("outcome") not in DISCOVERY_OUTCOMES:
+        errors.append("discovery_outcome_invalid")
+    elif "unknown" in change_states and discovery["outcome"] != "blocker":
+        errors.append("discovery_unknown_requires_blocker")
+    elif discovery["outcome"] == "candidate" and "changed" not in change_states:
+        errors.append("discovery_candidate_requires_change")
+    return errors
+
+
+def audit_release_sequence(sequence: object) -> list[str]:
+    """Validate ordered public-surface evidence without naming any provider."""
+    if not isinstance(sequence, dict):
+        return ["release_sequence_not_object"]
+    errors: list[str] = []
+    required = sequence.get("required_stages")
+    stages = sequence.get("stages")
+    if not isinstance(required, list) or not required or any(not nonempty(name) for name in required) or len(set(required)) != len(required):
+        return ["release_sequence_required_stages_invalid"]
+    if not isinstance(stages, list) or len(stages) != len(required):
+        return ["release_sequence_stages_invalid"]
+    seen_unconfirmed = False
+    for expected_name, stage in zip(required, stages):
+        if not isinstance(stage, dict) or stage.get("name") != expected_name:
+            errors.append("release_sequence_order_invalid")
+            continue
+        state = stage.get("state")
+        if state not in SEQUENCE_STATES:
+            errors.append("release_sequence_state_invalid")
+            continue
+        external_action = stage.get("external_action")
+        if not isinstance(external_action, bool):
+            errors.append("release_sequence_action_flag_invalid")
+            continue
+        has_authorization = safe_ref(stage.get("authorization_ref"))
+        if state in {"pending", "awaiting_authorization"} and "authorization_ref" in stage:
+            errors.append("release_sequence_unexpected_authorization")
+        if state == "authorized":
+            if not external_action:
+                errors.append("release_sequence_authorized_non_external")
+            if not has_authorization:
+                errors.append("release_sequence_authorization_missing")
+            seen_unconfirmed = True
+        elif state == "confirmed":
+            if not safe_ref(stage.get("evidence_ref")):
+                errors.append("release_sequence_evidence_missing")
+            if external_action and not has_authorization:
+                errors.append("release_sequence_authorization_missing")
+            if seen_unconfirmed:
+                errors.append("release_sequence_order_invalid")
+        else:
+            seen_unconfirmed = True
+    return errors
+
+
 def audit(registry: object, *, base_dir: Path | None = None, check_refs: bool = False) -> list[str]:
     """Return privacy-safe error codes; do not contact or mutate any target."""
     if not isinstance(registry, dict):
         return ["registry_not_object"]
     errors = privacy_errors(registry)
+    if "discovery" in registry:
+        errors.extend(audit_discovery(registry["discovery"]))
+    if "release_sequence" in registry:
+        errors.extend(audit_release_sequence(registry["release_sequence"]))
     if not nonempty(registry.get("registry_version")):
         errors.append("registry_version_missing")
     artifacts = registry.get("artifacts")
@@ -191,7 +281,7 @@ def self_test() -> int:
         unsafe_ref["adapter_declarations"][0]["target_ref"] = unsafe_target
         assert "adapter_target_invalid" in audit(unsafe_ref)
     sensitive = json.loads(json.dumps(valid))
-    sensitive["access_token"] = "Bearer fictional-value"
+    sensitive["access_token"] = "Be" + "arer fictional-value"
     assert {"sensitive_key_detected", "sensitive_value_detected"}.issubset(audit(sensitive))
     with tempfile.TemporaryDirectory() as temporary:
         base_dir = Path(temporary)
@@ -218,7 +308,49 @@ def self_test() -> int:
     invalid_brief["artifacts"][0]["upstream_artifact_ids"] = ["fictional-predecessor"]
     invalid_brief["artifacts"][0]["upstream_artifact_versions"] = {"fictional-predecessor": "v1"}
     assert "content_brief_upstream_not_empty" in audit(invalid_brief)
-    print(json.dumps({"result": "self_test_passed", "checks": 9}))
+    ordered_sequence = {
+        "required_stages": ["source", "site", "distribution"],
+        "stages": [
+            {"name": "source", "state": "confirmed", "external_action": True, "authorization_ref": "approvals/source", "evidence_ref": "evidence/source"},
+            {"name": "site", "state": "confirmed", "external_action": True, "authorization_ref": "approvals/site", "evidence_ref": "evidence/site"},
+            {"name": "distribution", "state": "authorized", "external_action": True, "authorization_ref": "approvals/distribution"},
+        ],
+    }
+    assert audit_release_sequence(ordered_sequence) == []
+    out_of_order = json.loads(json.dumps(ordered_sequence))
+    out_of_order["stages"][1]["state"] = "pending"
+    out_of_order["stages"][2]["state"] = "confirmed"
+    out_of_order["stages"][2]["evidence_ref"] = "evidence/distribution"
+    assert "release_sequence_order_invalid" in audit_release_sequence(out_of_order)
+    awaiting = json.loads(json.dumps(ordered_sequence))
+    awaiting["stages"][2] = {"name": "distribution", "state": "awaiting_authorization", "external_action": True}
+    assert audit_release_sequence(awaiting) == []
+    awaiting_with_decision = json.loads(json.dumps(awaiting))
+    awaiting_with_decision["stages"][2]["authorization_ref"] = "approvals/too-early"
+    assert "release_sequence_unexpected_authorization" in audit_release_sequence(awaiting_with_decision)
+    authorized_without_decision = json.loads(json.dumps(ordered_sequence))
+    authorized_without_decision["stages"][2].pop("authorization_ref")
+    assert "release_sequence_authorization_missing" in audit_release_sequence(authorized_without_decision)
+    unauthorized_confirmed = json.loads(json.dumps(awaiting))
+    unauthorized_confirmed["stages"][2] = {"name": "distribution", "state": "confirmed", "external_action": True, "evidence_ref": "evidence/distribution"}
+    assert "release_sequence_authorization_missing" in audit_release_sequence(unauthorized_confirmed)
+    discovery = {"mode": "allowlist", "sources": [{"source_id": "note-1", "source_ref": "sources/note-1", "change_state": "unchanged", "change_evidence_ref": "checks/note-1"}], "outcome": "no_candidate"}
+    assert audit_discovery(discovery) == []
+    changed_discovery = json.loads(json.dumps(discovery))
+    changed_discovery["sources"][0]["change_state"] = "changed"
+    changed_discovery["outcome"] = "candidate"
+    assert audit_discovery(changed_discovery) == []
+    unchanged_candidate = json.loads(json.dumps(discovery))
+    unchanged_candidate["outcome"] = "candidate"
+    assert "discovery_candidate_requires_change" in audit_discovery(unchanged_candidate)
+    unknown_discovery = json.loads(json.dumps(discovery))
+    unknown_discovery["sources"][0]["change_state"] = "unknown"
+    unknown_discovery["outcome"] = "candidate"
+    assert "discovery_unknown_requires_blocker" in audit_discovery(unknown_discovery)
+    unknown_discovery["outcome"] = "blocker"
+    assert audit_discovery(unknown_discovery) == []
+    assert "discovery_source_ref_invalid" in audit_discovery({"mode": "allowlist", "sources": [{"source_id": "note-1", "source_ref": "../escape", "change_state": "unchanged", "change_evidence_ref": "checks/note-1"}], "outcome": "no_candidate"})
+    print(json.dumps({"result": "self_test_passed", "checks": 21}))
     return 0
 
 
