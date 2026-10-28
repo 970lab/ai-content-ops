@@ -1,53 +1,60 @@
 # AI Content Operations
 
-This public skill package coordinates content-team artifacts from planning through feedback while keeping human authority at every external-action boundary.
+A practical workflow for turning real work into content with AI assistance and human editorial judgment.
 
-It was distilled from a workflow used for real content operations, then deidentified and separated from local paths, accounts, credentials, brand policy, and platform-specific settings. It is most useful when copywriters, visual editors, release coordinators, and analysts need AI-assisted handoffs that remain inspectable outside a chat window.
+Use it to take one reader question from verified sources through a coherent title, cover and script, actual media, a reviewed platform draft, and a recorded release. You can start with a text editor and an AI tool you already use. Python is optional for the offline checks.
 
-## Five-module workflow
+**Review candidate, 2026-10-29:** the creator guide is being prepared for release. This package does not provide automatic account login, uploading, publishing, media generation or analytics collection. External-user onboarding has not yet been validated.
 
-1. **Source discovery** turns approved source material into a traceable `content_brief` or `copy_package`.
-2. **Asset production** records editable visual or video work in an `edit_package` without changing approved claims.
-3. **Platform adaptation** assembles a destination-ready `release_package` and exposes every required adaptation.
-4. **Release control** stops at the human authorization boundary and records release evidence separately from approval.
-5. **Measurement feedback** records a `metric_snapshot`, then separates observation from interpretation in an `analysis_brief`.
+## Start here
 
-See `references/module-map.md` and `examples/full-lifecycle.example.json` for the complete handoff chain.
+1. Follow the [first-content walkthrough](docs/quickstart.md).
+2. Copy the [content worksheet](templates/content-worksheet.md) into your own private working folder.
+3. Read the [completed fictional example](examples/creator-walkthrough.md) alongside your worksheet.
+4. Use the [writing prompts](templates/editorial-prompts.md) to prepare one consistent title, cover and script.
+5. Continue through the [complete workflow](docs/creator-workflow.md) when your real assets are ready.
 
-## Included
+The worksheet is an editorial working document. Keep lifecycle status in your existing registry or ledger. Teams using structured artifacts can map its sections to the existing [artifact contract](references/artifact-contract.md); the worksheet is not JSON-validator input.
 
-- `SKILL.md`: routing, role handoffs, and core safety rules.
-- `references/`: artifact, state, approval, and adapter contracts.
-- `scripts/`: offline validators that read local JSON only.
-- `examples/`: fictional artifact records.
-- `skills/ai-website-release-gate/`: an offline, six-layer evidence gate for website release review, with fictional fixtures and a dependency-free validator.
-- `skills/delivery-evidence-check/`: six practical handoff questions for websites, local documents and automation outputs; an offline consistency checker keeps recipient access, revision identity and unresolved work visible without approving delivery.
+## What you get
 
-## Quick check
+| Need | Included resource |
+| --- | --- |
+| Keep your own voice and avoid invented experiences | [Editorial guide](docs/editorial-guide.md) |
+| Recover from wrong facts, missing footage or unreliable UI interactions | [Lessons and recovery](docs/lessons-and-recovery.md) |
+| Choose tools and understand costs | [Tools and boundaries](docs/tools-and-costs.md) |
+| Verify someone else can use it | [External trial checklist](docs/external-trial.md) |
+| Inspect structured handoffs and lifecycle evidence | [Artifact contract](references/artifact-contract.md), [states](references/workflow-states.md), [module map](references/module-map.md) |
+| Declare only the public surfaces actually needed | [Release sequence](references/release-sequence.md) |
+| Review a website release or other delivery | [Website release gate](skills/ai-website-release-gate/README.md), [delivery evidence check](skills/delivery-evidence-check/README.md) |
 
-```sh
+## Five responsibilities, flexible tools
+
+Source discovery → asset production → platform adaptation → release control → measurement feedback.
+
+One person can hold several roles. AI can help extract claims, draft and check consistency; the author owns the experience, angle and final voice. A reviewer checks claims and actual media. An authorized operator handles external actions. These roles do not require multiple paid subscriptions or separate agents.
+
+This workflow was distilled from real content operations. The [lesson notes](docs/lessons-and-recovery.md) paraphrase observed problems without exposing private source material. All sample projects, metrics and release receipts in this repository are **fictional teaching examples**, not evidence of actual publication or audience performance.
+
+## Optional offline checks
+
+From the repository root, with Python 3.10 or newer:
+
+```bash
 python3 scripts/audit_pipeline.py examples/registry.example.json --check-refs
 python3 scripts/audit_pipeline.py examples/full-lifecycle.example.json --check-refs
 python3 scripts/audit_pipeline.py examples/release-sequence.example.json
 python3 scripts/validate_metric_snapshot.py examples/metric_snapshot.example.json
 ```
 
-The scripts do not connect to networks, interact with accounts, upload, publish, collect metrics, or modify declared targets. A valid package supports preparation and verification only; release actions still require current, scoped human authorization.
+These scripts use the Python standard library. They do not connect to networks, interact with accounts, upload, publish, collect metrics or modify declared targets. A successful check proves only the checks implemented by that validator, not factual accuracy, creative quality, rights, audience access or live adapter functionality.
 
-Both validators return `0` for a valid result, `2` for unreadable or malformed input, and `3` for contract or policy violations. With `--allow-partial`, the metric validator returns `0` but reports `"result": "partial"` and the `partial_allowed` warning; that output is not equivalent to a complete valid snapshot.
+Both validators use exit code `0` for a valid result, `2` for unreadable or malformed input, and `3` for contract or policy violations. With `--allow-partial`, the metric validator can return `0` with `result: partial`; inspect the result and warnings.
 
-## Distribution note
+## Scope and reuse
 
-The included MIT notice names the project collective "AI Content Operations contributors." A downstream distributor may replace that notice when its own legal policy requires it.
+The core remains usable without a paid service from this project. You bring any necessary model subscriptions, editing tools, storage and platform accounts; their charges and terms are separate. No hosted service or paid support plan is offered by this candidate.
 
-## Scope
+Adapters are contracts for replaceable integrations, not shipped account connectors. Keep brand, language, platform constraints, storage locations and authorization preferences in local configuration. The portable package does not require every creator to publish to GitHub, a website and social media.
 
-Use replaceable adapters such as `filesystem`, `document_archive`, `object_storage`, `scheduler`, and `platform_metrics`. Keep source, archive, release, and metric evidence separate. Store one declared registry rather than starting a parallel ledger or database.
-
-Platform rules belong in a team's local configuration. This repository intentionally does not prescribe page counts, hashtag counts, account identities, storage mounts, or vendor-specific authorization wording.
-
-`examples/registry.example.json` is deliberately pre-release: it stops at `awaiting_authorization`. `examples/full-lifecycle.example.json` is a separate fictional post-release chain. Its referenced artifacts are included, its release record is `released` with neutral evidence, and only then does measurement begin.
-
-The offline audit also treats `content_brief` as a true root: any upstream artifact reference on that type is a contract violation.
-
-For a batch that crosses several public surfaces, declare the required order in a `release_sequence` rather than embedding provider names in this package. The validator distinguishes an authorization decision from completed-action evidence, and rejects a later confirmed stage if any required earlier stage is not confirmed. Discovery inputs are likewise an explicit, non-recursive allowlist with per-source change/checkpoint evidence; unknown change state is a blocker and a candidate needs at least one changed source. See `references/release-sequence.md` and its fictional example.
+[MIT](LICENSE) applies to included code and documentation under the existing notice. It does not grant rights to third-party media, private case evidence, personal voices or likenesses. See [security](SECURITY.md) and [candidate changes](CHANGELOG.md).

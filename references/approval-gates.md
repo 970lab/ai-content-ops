@@ -5,7 +5,7 @@ Approval is a human decision tied to a precise action. A prior review approval d
 ## Required gates
 
 1. **Content review:** approve the exact candidate version, including claims, rights notes, and edits.
-2. **Account action:** obtain human authorization immediately before login, upload, scheduling, publication, or other account interaction. State the intended destination, artifact version, and action scope.
+2. **Account action:** before login, upload, scheduling, publication, or other account interaction, verify a current human decision covering the intended destination, exact artifact version and action scope. Reuse an existing decision while its scope and conditions remain valid; ask again only for an uncovered action or relevant change. Content review alone does not authorize an account action.
 3. **Release evidence:** after the human action, record the confirmed published identity separately from the authorization.
 4. **Measurement:** collect metrics only when the published identity and observation window are confirmed. Record unavailable and immature data explicitly rather than guessing.
 
