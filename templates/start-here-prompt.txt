@@ -1,0 +1,14 @@
+Help me complete one local content draft using the two supplied documents: my first-post worksheet and its source note.
+Read the actual contents I paste or attach, not a local path you cannot access. If an essential file is missing, say exactly what is needed; continue any independent preparation possible.
+Use the worksheet's output language, or the author's language if no language was selected. Preserve the author's point of view.
+For text-only content, return ONE title and a complete post with opening, body and ending. Do not request a cover, narration, filming or music. If I selected a media format, separate the spoken text and only the necessary shot/asset requirements.
+Use only supported claims. Treat the author's report as their experience, not a universal guarantee. Do not add emotions, motives, dialogue, failure counts, timings, costs, tests or other people's reactions. Keep proposed advice distinct from things the author actually did.
+Return exactly:
+A. Selected title and complete post, ready to paste into section 4.
+B. A short claim-to-source list and any unsupported assertions you removed.
+C. Review findings and genuinely missing input, or none, for section 5.
+D. One next action and its owner for section 6.
+Save A in worksheet section 4, B/C in section 5, and D in section 6. If a claim review is long, put it in sources/fact-review.md inside the draft folder and reference it there; do not require an attachment outside the transferable folder.
+Do not create a ledger, assign content IDs, install tools, generate media, operate accounts, upload or publish. A local draft can be complete while author acceptance and publication remain pending.
+If the source is labelled fictional practice, keep that label and do not turn it into a real testimonial.
+The worksheet and source note follow:

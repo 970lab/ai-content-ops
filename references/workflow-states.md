@@ -27,4 +27,6 @@ These outcomes do not alter release status and must not create a competing ledge
 
 ## Declared discovery only
 
+This section governs periodic automated discovery records. A creator manually supplying a first source may begin directly with a `content_brief` in `planned` state; no discovery record or historical checkpoint is needed. Do not invent change evidence to make the automated example pass.
+
 A discovery record names the local sources it may inspect, records each source as `changed`, `unchanged`, or `unknown` with a neutral checkpoint reference, and finishes with one of the outcomes above. A missing allowlist is a `blocker`, not permission to look through adjacent folders, archives, or private history. An unchanged allowlisted source may correctly produce `no_candidate`; an unknown change state must produce `blocker`, and `candidate` requires at least one changed source.

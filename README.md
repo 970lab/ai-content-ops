@@ -2,19 +2,19 @@
 
 A practical workflow for turning real work into content with AI assistance and human editorial judgment.
 
-Use it to take one reader question from verified sources through a coherent title, cover and script, actual media, a reviewed platform draft, and a recorded release. You can start with a text editor and an AI tool you already use. Python is optional for the offline checks.
+Use it to take one reader question from sources to a complete text draft, or to a coherent title, cover and script with actual media when that format is appropriate. Continue to destination review and recorded release only when requested. You can start with a text editor and an AI tool you already use. Python is optional for the offline checks.
 
 **Review candidate, 2026-10-29:** the creator guide is being prepared for release. This package does not provide automatic account login, uploading, publishing, media generation or analytics collection. External-user onboarding has not yet been validated.
 
 ## Start here
 
-1. Follow the [first-content walkthrough](docs/quickstart.md).
-2. Copy the [content worksheet](templates/content-worksheet.md) into your own private working folder.
-3. Read the [completed fictional example](examples/creator-walkthrough.md) alongside your worksheet.
-4. Use the [writing prompts](templates/editorial-prompts.md) to prepare one consistent title, cover and script.
-5. Continue through the [complete workflow](docs/creator-workflow.md) when your real assets are ready.
+1. Follow [Start with one post](docs/quickstart.md). The default is a complete text draft; no media or code needed.
+2. Use the [six-section starter](templates/first-post.md) and [one copy-paste prompt](templates/start-here-prompt.txt).
+3. If you want a practice run first, use the [included source note](examples/first-post/source-note.md), then compare the [completed draft](examples/first-post/draft.md).
 
-The worksheet is an editorial working document. Keep lifecycle status in your existing registry or ledger. Teams using structured artifacts can map its sections to the existing [artifact contract](references/artifact-contract.md); the worksheet is not JSON-validator input.
+The repository instructions are in English; the starting prompt can produce content in your chosen language. Understanding the English guide and producing another language are separate usability questions.
+
+You only need one current draft and its source folder. No registry, artifact IDs or historical checkpoints are required for your first manually supplied story. Use the [advanced worksheet](templates/content-worksheet.md) when you actually need media, multiple destinations or team handoffs. Existing teams keep their own lifecycle index; do not create a second ledger.
 
 ## What you get
 

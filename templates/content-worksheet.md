@@ -1,6 +1,8 @@
-# Content worksheet
+# Advanced content worksheet
 
-Editorial working document. Copy into your private content workspace. Do not submit this Markdown file to the JSON validators. For structured handoff, use the [artifact contract](../references/artifact-contract.md) and existing registry. Paths below are relative to your private worksheet; keep them out of public examples unless explicitly cleared.
+For a first text post, use the six-section `first-post.md` starter supplied with this package. This full worksheet is for media, multiple destinations or structured team handoffs; fill only relevant sections.
+
+Editorial working document. Copy into your private content workspace. Do not submit this Markdown file to the JSON validators. For structured handoff, see `references/artifact-contract.md` in the downloaded workflow package and use your existing registry. That documentation path belongs to the package, not your copied draft folder. Paths below are relative to your private worksheet; keep them out of public examples unless explicitly cleared.
 
 ## 1. Identity and next action
 

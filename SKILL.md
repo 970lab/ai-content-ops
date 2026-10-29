@@ -11,7 +11,7 @@ The workflow has five modules: source discovery, asset production, platform adap
 
 ## Creator onboarding
 
-For a first content item, start with [docs/quickstart.md](docs/quickstart.md), then use the [worksheet](templates/content-worksheet.md) and [editorial prompts](templates/editorial-prompts.md). Establish the author angle before polishing. Keep title, cover and opening coherent; never add unsupported personal experiences. Save missing shots beside the selected draft. These editorial documents supplement the existing artifact contract and do not create new artifact types or a second status ledger.
+For a first content item, start with [docs/quickstart.md](docs/quickstart.md), then use the [short starter](templates/first-post.md) and [single starting prompt](templates/start-here-prompt.txt). The full worksheet and specialist prompts are optional advanced tools. Manual author-supplied stories do not need periodic-discovery checkpoints. Text-only drafts do not need invented cover, audio or filming tasks. Establish the author angle before polishing. Keep title, cover and opening coherent; never add unsupported personal experiences. Save missing shots beside the selected draft. These editorial documents supplement the existing artifact contract and do not create new artifact types or a second status ledger.
 
 ## Route the request
 
@@ -32,7 +32,7 @@ For a first content item, start with [docs/quickstart.md](docs/quickstart.md), t
 6. Collect metrics only after a confirmed published identity and measurement window exist. Record each metric as `observed`, `zero`, `unavailable`, or `immature`; never infer a zero from missing data.
 7. Keep organization-specific paths, brand rules, platform limits, topic counts, account names, and approval tokens in local configuration. Do not bake them into the portable workflow contract.
 8. When a batch has several public surfaces, declare their order and evidence in a `release_sequence`. `pending` and `awaiting_authorization` are not authorization; an external action is only authorized by a distinct current decision reference, and only confirmed by separate evidence.
-9. Discovery inspects only explicitly declared source references. Each has change/checkpoint evidence; `unknown` is a blocker, and the allowlist never expands into a recursive workspace scan.
+9. Periodic automated discovery inspects only explicitly declared source references. Each has change/checkpoint evidence; `unknown` is a blocker, and the allowlist never expands into a recursive workspace scan. A manually supplied first story may start directly as a content brief without a discovery record or invented history. Its source and claim checks still apply.
 
 ## Helpers
 

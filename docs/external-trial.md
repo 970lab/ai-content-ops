@@ -1,10 +1,10 @@
 # Test whether another creator can use this
 
-Status: proposed validation protocol; no external-user results are claimed.
+Status: external-user protocol. Internal AI walkthroughs, owner-reported use on several computers and independent new-human onboarding are different evidence categories. Owner-reported cross-computer use has been received; device details and technical transfer checks were not supplied. This does not replace a new-human onboarding trial.
 
 Invite a small initial group, for example three to five creators, with permission to review their feedback. They choose their own non-sensitive project and existing tools. The goal is a coherent evidence-backed draft; publication is optional and separately authorized.
 
-Give each participant the README, quickstart, worksheet and fictional example. Do not give them private internal files or a live demonstration that hides missing instructions. Let them attempt the first draft independently and record where help becomes necessary.
+Give each participant the README, quickstart, six-section starter, one start prompt and self-contained fictional source note. Do not give them private internal files or a live demonstration that hides missing instructions. Let them attempt the first draft independently and record where help becomes necessary.
 
 ## Record in the existing review notes
 
@@ -19,7 +19,7 @@ Give each participant the README, quickstart, worksheet and fictional example. D
 
 ## Completion criteria
 
-A participant can create a coherent title/cover/opening, distinguish sources from guesses, produce a specific missing-shots list, save a usable handoff, and explain what remains before publication. A validator success alone cannot satisfy these criteria.
+A participant can create a complete text draft with a coherent title/opening/body/ending, distinguish sources from guesses, review claims, save a usable handoff, and explain what remains before publication. Only a chosen media format requires cover/shot planning. A validator success alone cannot satisfy these criteria.
 
 If an operator must intervene, record the help rather than calling the attempt independent. Fix repeated documentation gaps, then test the revised instructions with a new attempt. A small successful group supports a limited usability claim, not universal reliability or revenue claims.
 

@@ -2,9 +2,15 @@
 
 This is the human operating guide for the existing five-module contract. The steps below describe a complete path; completion is recorded per step and per destination. A reusable process can be complete while a particular story correctly waits for footage.
 
+## Choose a format before starting
+
+For a pure text post, use the title, opening, body and ending. Media production is not applicable unless a visual, audio item or visible link card is actually part of the result. Use the short starter for a single creator; the artifact names below describe optional structured team integration, not mandatory first-session paperwork.
+
 ## 1. Discover a useful story
 
-**Input:** a declared list of permitted source notes and their change checkpoints.
+**Manual first story:** begin with the specific source material the author supplies and its public boundaries. No prior snapshot is needed to draft it.
+
+**Periodic automated discovery:** input is a declared list of permitted source notes and their change checkpoints. The following change-state rules apply to this automated mode.
 
 Read changed sources only. Ask: what can a reader learn, repeat or avoid? Return `candidate`, `no_candidate` or `blocker`. No meaningful new evidence is a valid `no_candidate`, not a reason to invent a daily post. Unknown source state is a blocker for that discovery decision.
 
@@ -17,6 +23,8 @@ Start from what the author wants to say. A technical log supplies facts; it does
 **Output:** `copy_package` containing selected copy, claim links, editorial notes and open questions. A reviewer checks both truth and voice. If the author changes the angle, update all three entry points together. Do not carry stale claims into the new version.
 
 ## 3. Collect and produce the actual media
+
+For a pure text post without visible cards or media, record media as not applicable and move to destination preparation. Do not create an empty media artifact solely to satisfy an integration example. If using a structured registry, follow its supported transitions; the existing sample chains demonstrate media posts and are not a compulsory structure for a manual text draft.
 
 Turn the script into a shot list. Match every important visible claim with a corresponding current clip or image. Reuse permitted historical footage only with its actual time/version context. Label CAD renders, mockups, reconstructions and generated illustrations accurately; they cannot prove physical testing or a real event.
 
