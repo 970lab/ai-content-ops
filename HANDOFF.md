@@ -1,59 +1,7 @@
-# ai-content-ops-public-v02 · HANDOFF
+# AI Content Operations — handoff
 
-> ⚠️ 本文件由 gen_global_status.py 自动生成于 2026-08-31，仅有骨架，正文待人工补。
-> 补完后请删除本行。
+2026-10-29: the owner accepted the ten-step creator workflow and authorized the repository update. Start at [README.md](README.md) and [workflow at a glance](docs/workflow-at-a-glance.md).
 
-最后更新时间：待补
+The package provides a text-first starter, reusable prompts, self-contained examples and operational lessons alongside the existing offline contracts. Internal AI walkthroughs and owner-reported use across several computers are recorded as distinct evidence; independent new-human onboarding remains unverified.
 
-更新人：待补
-
-状态来源：待补
-
-## 1. 项目定位
-
-项目目标：待补
-
-目标用户：待补
-
-核心价值：待补
-
-## 2. 当前状态
-
-- 当前版本：待补
-- 当前主线：待补
-- 当前阶段：待补
-- 最近重大变化：待补
-- 最后更新时间：待补
-- 状态依据：待补
-
-## 3. 技术位置
-
-代码仓库：待补
-
-当前基线分支 / commit：待补
-
-文档位置：待补
-
-部署位置：待补
-
-相关服务：待补
-
-## 4. 当前问题
-
-- P0：待补
-- P1：待补
-- P2：待补
-
-## 5. 下一步任务
-
-- 待补
-
-## 6. 禁止事项
-
-- 待补
-
-## 7. 关联文件
-
-- STATUS：待补
-- README：待补
-- AGENTS / 项目规则：待补
+Next: maintain the same entry points, record specific reader feedback and test improvements. Publishing, media tools and third-party costs remain separate from this offline package. Preserve the MIT notice and keep private source evidence outside the repository.
