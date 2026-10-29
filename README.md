@@ -4,7 +4,9 @@ A practical workflow for turning real work into content with AI assistance and h
 
 Use it to take one reader question from sources to a complete text draft, or to a coherent title, cover and script with actual media when that format is appropriate. Continue to destination review and recorded release only when requested. You can start with a text editor and an AI tool you already use. Python is optional for the offline checks.
 
-**Review candidate, 2026-10-29:** the creator guide is being prepared for release. This package does not provide automatic account login, uploading, publishing, media generation or analytics collection. External-user onboarding has not yet been validated.
+**Creator guide — 2026-10-29:** start with one text draft, then add only the media and destinations you need. This package does not provide automatic account login, uploading, publishing, media generation or analytics collection. External-user onboarding has not yet been validated.
+
+Read [the workflow in ten simple steps](docs/workflow-at-a-glance.md) for the full path from a real story to publication and review.
 
 ## Start here
 
@@ -53,7 +55,7 @@ Both validators use exit code `0` for a valid result, `2` for unreadable or malf
 
 ## Scope and reuse
 
-The core remains usable without a paid service from this project. You bring any necessary model subscriptions, editing tools, storage and platform accounts; their charges and terms are separate. No hosted service or paid support plan is offered by this candidate.
+The core remains usable without a paid service from this project. You bring any necessary model subscriptions, editing tools, storage and platform accounts; their charges and terms are separate. No hosted service or paid support plan is offered by this repository.
 
 Adapters are contracts for replaceable integrations, not shipped account connectors. Keep brand, language, platform constraints, storage locations and authorization preferences in local configuration. The portable package does not require every creator to publish to GitHub, a website and social media.
 

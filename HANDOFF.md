@@ -1,11 +1,7 @@
 # AI Content Operations — handoff
 
-2026-10-29: creator-workflow candidate prepared locally for owner review. Start at [README.md](README.md), then [quickstart](docs/quickstart.md). The update adds editorial practice and onboarding around the existing offline contracts.
+2026-10-29: the owner accepted the ten-step creator workflow and authorized the repository update. Start at [README.md](README.md) and [workflow at a glance](docs/workflow-at-a-glance.md).
 
-The target is the existing public repository. No candidate branch, pull request, release, website or social update has been published by this preparation step. Existing public files remain the baseline, not proof that the new candidate is released.
+The package provides a text-first starter, reusable prompts, self-contained examples and operational lessons alongside the existing offline contracts. Internal AI walkthroughs and owner-reported use across several computers are recorded as distinct evidence; independent new-human onboarding remains unverified.
 
-Follow-up: the text-first starter now uses six sections and one prompt; internal separate-context AI walkthroughs produced a complete local text draft and led to explicit manual-entry and self-contained folder guidance. Owner-reported multi-computer use is recorded separately from new-human validation.
-
-Next: review the candidate wording and scope, complete independent onboarding trials, and review the exact proposed public diff before an authorized release. Preserve the existing MIT notice. Keep private evidence and owner-review notes outside the public candidate.
-
-See [STATUS.md](STATUS.md) for validation and limits, [CHANGELOG.md](CHANGELOG.md) for scope.
+Next: maintain the same entry points, record specific reader feedback and test improvements. Publishing, media tools and third-party costs remain separate from this offline package. Preserve the MIT notice and keep private source evidence outside the repository.
