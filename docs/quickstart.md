@@ -48,4 +48,4 @@ Give the new helper section 6 and the actual draft/source contents. Do not assum
 
 ## When you need images, audio or video
 
-Keep the selected text. Add only the relevant media fields from the [advanced worksheet](../templates/content-worksheet.md): real assets, missing shots, rights and export review. Then follow [the complete workflow](creator-workflow.md) for actual production, destination preparation, authorized actions and receipts. You do not need the advanced worksheet to finish this first text draft.
+Keep the selected text. Add only the relevant media fields from the [advanced worksheet](../templates/content-worksheet.md): real assets, missing shots, rights and export review. Use the [video production guide](video-workflow.md) and its shot list if making video. Then follow [the complete workflow](creator-workflow.md) for actual production, destination preparation, authorized actions and receipts. You do not need the advanced worksheet to finish this first text draft.
