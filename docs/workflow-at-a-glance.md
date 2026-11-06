@@ -43,3 +43,6 @@ Use an available permitted tool or the official platform workflow. Verify the ac
 Save final text, assets and actual release evidence. Read back any archive transfer and use observed metrics and feedback, leaving missing data unknown.
 
 For the first local draft, follow [Start with one post](quickstart.md). For detailed responsibilities and structured handoffs, see [the complete guide](creator-workflow.md). These ten actions are a readable view of the existing five modules, not new artifact types or an automatic publishing service.
+
+
+For a video, the practical [eleven-step production guide](video-workflow.md) expands these actions into story, hook, script, shots, pickup list, narration, review, platform preparation, archive and learning. It does not change the five-module contract or require video for text posts.

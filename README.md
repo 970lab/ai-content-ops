@@ -6,7 +6,7 @@ Use it to take one reader question from sources to a complete text draft, or to 
 
 **Creator guide — 2026-10-29:** start with one text draft, then add only the media and destinations you need. This package does not provide automatic account login, uploading, publishing, media generation or analytics collection. External-user onboarding has not yet been validated.
 
-Read [the workflow in ten simple steps](docs/workflow-at-a-glance.md) for the full path from a real story to publication and review.
+Read [the workflow in ten simple steps](docs/workflow-at-a-glance.md) for the full path from a real story to publication and review. For video, use the [step-by-step production guide](docs/video-workflow.md) and [shot and pickup checklist](templates/video-shot-list.md).
 
 ## Start here
 
